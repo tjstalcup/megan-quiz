@@ -7,13 +7,44 @@
 	<title>Quiz</title>
 </head>
 <body>
-	<div class="container">
-		<div class="title">
-			<h1>Foodie Quiz</h1>
-		</div>
-		<div class="question">
+	<div class="masthead">
+		<h1>Foodie Quiz</h1>
+		<button class="new-game" type="button">New Game</button>
+	</div>
+	<div class="content">
+		<div class="row">
+			<div class="questions-panel">
+				<div class="panel-title">QUESTION</div>
+				<div class="panel-body">
+					<span id="questionNumber">1/10</span>
+				</div>
+			</div>
+			<h2 class="question">What term refers to a mixture of butter and flour used in making a sauce?</h2>
 		</div>
 		<div class="answers">
+			<div class="row">
+				<div class="qbox">
+					<div class="answerNumber">1</div>
+					<div class="answer">Compote</div>
+				</div>
+				<div class="qbox">
+					<div class="answerNumber">2</div>
+					<div class="answer">Roux</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="qbox">
+					<div class="answerNumber">3</div>
+					<div class="answer">Doux</div>
+				</div>
+				<div class="qbox">
+					<div class="answerNumber">4</div>
+					<div class="answer">Coulis</div>
+				</div>
+			</div>
+		</div>
+		<div class="summary">
+			<h2> You got 5 out of 10 questions correct</h2>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery.min.js"></script>
