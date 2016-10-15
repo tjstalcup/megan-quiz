@@ -57,11 +57,13 @@ var quiz = [
 ];
 /* show question, submit to answeQuestion */
 function answerQuestion() {
-	var question = quiz.question[currentQuestion - 1];
+	var question = quiz.question[currentQuestion];
+
 }
 
 function showSummary() {
-	$('.summary').show()
+	$('.summary').show();
+	$('.summary h2').text("You got " + score + " out of " + quiz.length + " questions correct!");
 	$('.questions-panel').hide();
 	$('.question').hide();
 	$('.answers').hide();
@@ -72,7 +74,7 @@ function showQuestion() {
 	if (questionObj) {
 		$('.question').text(questionObj.question);
 		for (i = 0; i < questionObj.answers.length; i++) {
-			$('.answer').append(quiz.answers[currentQuestion])
+			$('.answer').append(questionObj.answers[i]);
 		}
 	} else {
 		showSummary();
