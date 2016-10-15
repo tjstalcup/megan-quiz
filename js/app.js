@@ -55,10 +55,22 @@ var quiz = [
 		rightAnswer: 2,
 	}
 ];
-/* show question, submit to answeQuestion */
-function answerQuestion() {
-	var question = quiz.question[currentQuestion];
 
+showQuestion();
+
+$('.answers').on('click','.qbox',function(){
+	var guess = $(this).attr('data-answer');
+	answerQuestion(guess);
+});
+
+/* show question, submit to answeQuestion */
+function answerQuestion(guess) {
+	var question = quiz[currentQuestion];
+	if(guess == question.rightAnswer){
+		score++;
+	}
+	currentQuestion++;
+	showQuestion();
 }
 
 function showSummary() {
@@ -70,15 +82,21 @@ function showSummary() {
 }
 
 function showQuestion() {
-	var questionObj = quiz.question[currentQuestion];
+	$('#questionNumber').text((currentQuestion+1)+"/"+quiz.length);
+	var questionObj = quiz[currentQuestion];
+	var html = "";
 	if (questionObj) {
 		$('.question').text(questionObj.question);
 		for (i = 0; i < questionObj.answers.length; i++) {
-			$('.answer').append(questionObj.answers[i]);
+			html += '<div class="qbox" data-answer="'+i+'">';
+			html += '<div class="answerNumber">'+(i+1)+'</div>'+
+									'<div class="answer">'+questionObj.answers[i]+'</div>';
+			html += '</div>';
 		}
+		$('.answers').html(html);
 	} else {
 		showSummary();
 	}
 }
 
-})
+});
